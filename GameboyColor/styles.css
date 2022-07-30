@@ -1,0 +1,314 @@
+html {
+  font-size: 10px;
+}
+
+@font-face {
+  font-family: button-font;
+  src: url("fonts/ITC Avant Garde Gothic Book Condensed.otf");
+}
+
+@font-face {
+  font-family: gameboy-logo-font;
+  src: url("fonts/Gill Sans Bold Italic.otf");
+}
+
+@font-face {
+  font-family: nintendo-logo-font;
+  src: url("fonts/Pretendo.ttf");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gameboy {
+  position: absolute;
+  height: 73rem;
+  width: 43rem;
+  border-radius: 1.5rem;
+  border-bottom-left-radius: 3.5rem;
+  border-bottom-right-radius: 3.5rem;
+  background-image: linear-gradient(#96ca1d, #98cc21, #8ac81b);
+  box-shadow: 
+    /* left */ inset 6px 0px 2px -2px #abc945,
+    /* top */ inset 0px 6px 4px -2px #96c332,
+    /* right */ inset -6px 0px 4px -2px #91b146,
+    /* bottom */ inset 0px -6px 3px -2px #80c234, 0px 7px 3px -3px #8cb26a,
+    /* left highlight */ inset 9px 0px 2px -1px #ddfa9d,
+    /* right highlight */ inset -7px 0px 1px -1px #ddfa9d;
+  z-index: -10;
+}
+
+.left-bevel {
+  position: absolute;
+  z-index: -9;
+  left: 9px;
+  top: 6px;
+  height: 68rem;
+  width: 6.5rem;
+  border-top-left-radius: 0.75rem;
+  background-image: linear-gradient(#bdd96f, #bcda68, rgba(188, 218, 104, 0));
+}
+
+.left-bevel::after {
+  content: "";
+  position: absolute;
+  height: 95%;
+  width: 100%;
+  box-shadow: 
+    /* top */ inset 0px 3px 2px -2px #b9e256,
+    /* right */ inset -4px 0px 3px -3px #b9e256;
+}
+
+.right-bevel {
+  z-index: -9;
+  position: absolute;
+  right: 8px;
+  top: 6px;
+  height: 68rem;
+  width: 6.5rem;
+  border-top-right-radius: 0.75rem;
+  background-image: linear-gradient(#90cb17, #8ac81b);
+}
+
+.screen-frame {
+  height: 33rem;
+  width: 37.5rem;
+
+  position: absolute;
+  top: 3rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  border-radius: 1.5rem;
+  background-image: linear-gradient(rgb(50, 53, 58), rgb(52, 56, 59));
+  box-shadow: 0 0 0.5px 0.5px rgb(74, 112, 35),
+    0px -3px 4px rgb(41, 64, 22) inset, 1px 1.5px 1.5px rgb(72, 103, 35) inset,
+    4px 4px 2px rgb(24, 35, 20) inset, -1px 1.5px 1.5px rgb(37, 47, 38) inset,
+    -4px 4px 2px rgb(56, 56, 64) inset;
+}
+
+.lcd {
+  background-image: linear-gradient(rgb(191 196 173), rgb(187, 194, 176));
+  height: 21rem;
+  width: 23rem;
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+  filter: blur(0.6px);
+
+  border-radius: 0.2rem;
+
+  box-shadow: 0 0 0.1rem 0.6rem rgb(21, 25, 24),
+    0 0 0.5rem rgb(21, 25, 24) inset;
+}
+
+.gameboy-logo {
+  font-family: gameboy-logo-font;
+  font-size: 3.6rem;
+  position: absolute;
+  top: 7.6rem;
+  left: 50%;
+  transform: translate(-50%, 0) scaleY(1.1) scaleX(1.05);
+  white-space: nowrap;
+  background-image: linear-gradient(
+    90deg,
+    #34478b,
+    #34478b 19%,
+    #01b133 21%,
+    #01b133 39%,
+    #e70686 41%,
+    #e70686 59%,
+    #e70341 61%,
+    #e70341 79%,
+    #f3f21c 81%,
+    #f3f21c
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gameboy-logo-shadow {
+  font-family: gameboy-logo-font;
+  font-size: 3.6rem;
+  position: absolute;
+  top: 7.6rem;
+  left: 50%;
+  transform: translate(-50%, 0) scaleY(1.1) scaleX(1.05);
+  white-space: nowrap;
+  text-shadow: #989895 2px 1px;
+  -webkit-text-fill-color: transparent;
+}
+
+.power-indicator {
+  position: absolute;
+  top: 10rem;
+  left: 1rem;
+  filter: blur(0.6px);
+}
+
+.power-led {
+  position: absolute;
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: #e21637;
+  border-radius: 50%;
+  border: 1px solid #452935;
+  outline-offset: -2px;
+  box-shadow: inset 0px 0px 3px 1.5px #95424a;
+}
+
+.power-symbols {
+  position: absolute;
+  left: 1.4rem;
+  top: 0.2rem;
+}
+
+.power-text {
+  position: absolute;
+  top: 1.7rem;
+  left: 0.3rem;
+  color: #c2cbd2;
+  font-size: 1rem;
+  font-family: sans-serif;
+  font-weight: bolder;
+}
+
+.power-symbol {
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 4px 0px 0px 0px #c2cbd2;
+}
+
+.power-symbol:nth-child(1) {
+  left: -0.6rem;
+}
+
+.power-symbol:nth-child(2) {
+  left: 0.3rem;
+}
+
+.power-symbol:nth-child(3) {
+  left: 1.2rem;
+}
+
+.nintendo-logo-body {
+  position: absolute;
+  top: 39rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  font-size: 1.8rem;
+  font-family: nintendo-logo-font;
+
+  color: #86c119;
+  height: 2rem;
+  width: 11.6rem;
+  border-radius: 1em;
+
+  padding-top: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 4px solid #86c119;
+  box-shadow: inset 1px 0.5px 2px -1px #ade747, 1px 0.5px 1px -1px #7ab211;
+}
+
+.button-container {
+  position: absolute;
+  top: 44rem;
+  left: 26.6rem;
+}
+
+.button {
+  height: 4.7rem;
+  width: 4.7rem;
+
+  background-color: #383d39;
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  box-shadow: 
+    /* edge glow */ 1px 0px 2px 0.5px #949c8a inset,
+    /* edge shadow */ -1px -2px 4px 1px #21271d inset,
+    /* hard shadow */ 1px 1px 0px 0px #071e14,
+    /* soft shadow */ 4px 3px 3px 0px #1b641b;
+}
+
+.button::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  top: -1px;
+  z-index: -1;
+
+  height: 4.9rem;
+  width: 4.9rem;
+
+  background-color: #021000;
+  border-radius: 50%;
+  box-shadow: 
+    /* edge highlight */ -1px -1px 4px 2px #bae06f;
+}
+
+#button-B {
+  position: absolute;
+  top: 2.4rem;
+}
+
+#button-A {
+  position: absolute;
+  left: 8rem;
+}
+
+.button p {
+  font-size: 3rem;
+  font-family: button-font;
+  color: #1e1f21cc;
+  text-shadow: #949c8a 0.5px 0.15px, #21271d -2px -0.6px;
+}
+
+.lower-button-container {
+  position: absolute;
+  top: 60rem;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.lower-button {
+  position: relative;
+  float: left;
+  background-color: #575755;
+  width: 3.7rem;
+  height: 1.3rem;
+  border-radius: 47%;
+  margin: 1.3rem;
+
+  box-shadow: 
+    /* top left highlight */ inset 2px 0.5px 3px 1px #849278,
+    /* bottom right light shadow */ inset -2px -2px 4px 1px #313a35,
+    /* top left shadow */ -1px -0.5px 0px 0px #103b00,
+    /* bottom right dark shadow */ 3px 1.5px 2px 0px #1d4b0a,
+    /* top left glow */ -3px -1px 3px 3px #72b728,
+    /* bottom right highlight */ 5px 2px 2px 1px #c2fa8b;
+}
+
+#button-select {
+}
+
+#button-start {
+}
